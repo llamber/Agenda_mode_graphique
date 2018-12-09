@@ -106,12 +106,11 @@ public class AffichageMenu2 extends JFrame {
         //Supprimer tous les RDV
         bouton5.addActionListener((java.awt.event.ActionEvent e) -> {
             JOptionPane jop7 = new JOptionPane();
-            int option = JOptionPane.showConfirmDialog(null, "Souhaitez-vous supprimer tous les RDV ?", "Suppressions des RDV", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
-            if (!(option != JOptionPane.NO_OPTION
-                    && option != JOptionPane.CANCEL_OPTION
-                    && option != JOptionPane.CLOSED_OPTION)) {
-                GestionAgenda.traiterChoixSupprimerTousRDV(agenda);
+            for(int i=0; i<agenda.size();i++)
+            {
+            GestionAgenda.traiterChoixSupprimerTousRDV(agenda,i);
             }
+            JOptionPane.showMessageDialog(null,"Les RDV sont supprimés", "Suppression tous les RDV",JOptionPane.INFORMATION_MESSAGE);
         });
 
         //Sauvegarder et quitter
