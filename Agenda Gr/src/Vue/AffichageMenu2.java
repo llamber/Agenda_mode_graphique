@@ -58,10 +58,15 @@ public class AffichageMenu2 extends JFrame {
         });
 
         //Afficher les RDV entre 2 dates a faire 
-        bouton1.addActionListener((java.awt.event.ActionEvent e) -> {
+            bouton1.addActionListener((java.awt.event.ActionEvent e) -> {
             JOptionPane jop = new JOptionPane(), jop2 = new JOptionPane();
-            String AfficherDateRDV = JOptionPane.showInputDialog(null, "Afficher tous les RDV entre 2 dates", "L&P calendar", JOptionPane.QUESTION_MESSAGE);
-            JOptionPane.showMessageDialog(null, "Les RDV entre ces deux dates sont : " + AfficherDateRDV, "Agenda", JOptionPane.INFORMATION_MESSAGE);
+            String AfficherDateRDV = JOptionPane.showInputDialog(null, "Afficher tous les RDV entre 2 dates" + "\n" + "Première date", "L&P calendar", JOptionPane.QUESTION_MESSAGE);
+            String AfficherDateRDV2 = JOptionPane.showInputDialog(null, "Afficher tous les RDV entre 2 dates" + "\n" + "Seconde date", "L&P calendar", JOptionPane.QUESTION_MESSAGE);
+            Collections.sort(agenda, RendezVous.Comparator);
+            for(int i=agenda.indexOf(AfficherDateRDV); i<agenda.size(); i++)
+            {
+            JOptionPane.showMessageDialog(null, "Les RDV entre ces deux dates qui sont : " + AfficherDateRDV + "et le" + AfficherDateRDV2 + "\n" + i + " - Date: " + agenda.get(i).getDate() + "\n" + "Heure: " + agenda.get(i).getHeureDebut() + " - " + agenda.get(i).getHeureFin() + "\n" + "Libelle: " + agenda.get(i).getLibelle() + "\n" + "Rappel:  " + agenda.get(i).isRappel() + "\n" + "\n", "Agenda", JOptionPane.INFORMATION_MESSAGE);
+            }
         });
 
         //Modifier un RDV
