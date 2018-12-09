@@ -216,5 +216,9 @@ public class GestionAgenda implements Serializable {
         ois.close();
         return ag;
     }
+        static public LocalDate Date(String saisiDate){
+        LocalDate date = LocalDate.parse(saisiDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        return date;
+    }
 
 }
