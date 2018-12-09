@@ -47,13 +47,9 @@ public class AffichageMenu2 extends JFrame {
         //Affiche tous les RDV a faire
         bouton0.addActionListener((java.awt.event.ActionEvent e) -> {
             JOptionPane jop = new JOptionPane();
-            JOptionPane.showMessageDialog(null, "Voir console :D", "Liste de RendezVous", JOptionPane.INFORMATION_MESSAGE);
             Collections.sort(agenda, RendezVous.Comparator);
         for (int i = 0; i < agenda.size(); i++) {
-            System.out.println(i + " - Date: " + agenda.get(i).getDate()+
-                    "\nHeure: " + agenda.get(i).getHeureDebut() + " - " + agenda.get(i).getHeureFin()+
-                    "\nLibelle: " + agenda.get(i).getLibelle()+
-                    "\nRappel:  " + agenda.get(i).isRappel() + "\n" + "\n");
+            JOptionPane.showMessageDialog(null,i + " - Date: " + agenda.get(i).getDate()+ "\nHeure: " + agenda.get(i).getHeureDebut() + " - " + agenda.get(i).getHeureFin()+"\nLibelle: " + agenda.get(i).getLibelle()  + "\nRappel:  " + agenda.get(i).isRappel() + "\n" + "\n", "Liste de RendezVous", JOptionPane.INFORMATION_MESSAGE);
         }
         });
 
